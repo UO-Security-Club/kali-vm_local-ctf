@@ -39,7 +39,7 @@ int get_ID() {
         size_t space_remaining = 64 - len;
 
         puts("Enter ID:");
-        fflush(stdout);
+
         if(fgets(&ID_buf[len], space_remaining, stdin)){
                 return 0;
         }
@@ -55,15 +55,15 @@ int func1() {
 
         memset(buf, 0, 32);
 
-        printf(ID_buf);
-        fflush(stdout);
+        printf(ID_buf); 
 
-        if(!(fgets(buf, 40, stdin)))
+	if(!fgets(buf, 40, stdin)){
+		fputs("Error: failed to read input.", stderr);
                 return 0;
+	}
 
         if((canary ^ canary_backup) != 0){
-                puts("Stranger-Danger!!! I'm running away and never returning!");
-                fflush(stdout);
+                puts("Stranger-Danger!!! I'm running away and never returning!"); 
                 exit(1);
         }
 
@@ -72,18 +72,19 @@ int func1() {
 
 void main() {
 
-    if(get_ID() != 0){
+    	if(get_ID() != 0){
+    		return;
+    	}
+
+	/*If func1() returns a non-zero value, then the login was successful*/
+	if(func1()){
+		puts("Login was successful\nDispensing sensitive information:");
+		/* v---< Objective is to call the success() function*/
+        	success();
+		/*the success() function calls exit directly instead of returning*/
+    	}
+
+       	puts("Failed to login\nIncorrect username");
     	return;
-    }
-
-    /*If func1() returns a non-zero value, then the login was successful*/
-    if(func1()){
-        puts("Login was successful\nDispensing sensitive information:");
-        success(); //Print flag
-    }else{
-        puts("Failed to login\nIncorrect username");
-    }
-
-    return;
 }
 
