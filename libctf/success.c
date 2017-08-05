@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "libctf.h"
 
 void success()
@@ -16,7 +17,7 @@ void success()
 	}
 
     	while ((read = getline(&line, &len, fp)) != -1) {
-    	    printf("%s\n", line);
+    	    	write(1, line, read);
     	}
 
     	fflush(stdout);
