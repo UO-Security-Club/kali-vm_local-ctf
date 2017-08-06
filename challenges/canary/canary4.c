@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "../../libctf/libctf.h"
+#include "../../libctf/static_lib/libctf.h"
 
 char ID_buf[64];
 unsigned int canary_backup;
@@ -51,16 +51,21 @@ int func1() {
 
         int login_status = 0;
         unsigned int canary = generate_canary();
-        char buf[32];
+        char password_buf[32];
 
-        memset(buf, 0, 32);
+        memset(password_buf, 0, 32);
 
         printf(ID_buf); 
 
-	if(!fgets(buf, 40, stdin)){
+	if(!fgets(password_buf, 40, stdin)){
 		fputs("Error: failed to read input.", stderr);
                 return 0;
 	}
+
+	/*If the secure_login() function returns non-zero (it never will), set login_status to 1,*/
+        if(secure_login(password_buf)){
+                login_status = 1;
+        }
 
         if((canary ^ canary_backup) != 0){
                 puts("Stranger-Danger!!! I'm running away and never returning!"); 
@@ -84,7 +89,7 @@ void main() {
 		/*the success() function calls exit directly instead of returning*/
     	}
 
-       	puts("Failed to login\nIncorrect username");
+       	puts("Failed to login\nIncorrect Credentials");
     	return;
 }
 

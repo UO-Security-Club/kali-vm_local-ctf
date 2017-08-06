@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "../../libctf/libctf.h"
+#include "../../libctf/static_lib/libctf.h"
 
 int canary_backup;
 

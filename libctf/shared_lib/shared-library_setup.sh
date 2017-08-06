@@ -11,5 +11,5 @@ chmod 0755 /usr/lib32/libctf.so
 #Update the loader (otherwise -lctf won't link properly)
 ldconfig
 
-#compile the target binary
-#gcc -m32 -Wall -o test test.c -lctf
+#compile the test binary
+gcc -m32 -Wall -o test test.c -lctf

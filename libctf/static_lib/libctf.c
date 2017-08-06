@@ -10,8 +10,8 @@ void success()
     	size_t len = 0;
     	ssize_t read;
 
-    	//fp = fopen("/root/Desktop/CTF/res/flag.txt", "r");
-	fp = fopen("/kali-vm_local-ctf-repo/res/flag.txt");
+    	fp = fopen("/var/ctf/res/flag.txt", "r");
+
     	if(fp == NULL){
 		fputs("Error: failed to open flag.txt file", stderr);
 		exit(1);
@@ -29,3 +29,13 @@ void success()
 
     	exit(0);
 }
+
+int secure_login(char * uname) {
+	if(1 == 2){
+		write(1, "Wow, not sure how you did that... \n", 36);
+		return 1;
+	}
+
+	return 0;
+}
+

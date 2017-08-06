@@ -1,6 +1,7 @@
-CHL_FILE="../challenges/canary/canary5.c"
-LB1_FILE="../libctf/success.c"
-LB2_FILE="../libctf/secure_login.c"
+#compile with static libctf
+
+SRC_FILE="../challenges/canary/canary5.c"
+LIB_DIR="../libctf/static_lib/"
 BIN_FILE="../challenges/canary/canary5"
 
-gcc -m32 -mpreferred-stack-boundary=2 -o $BIN_FILE $CHL_FILE $LB1_FILE $LB2_FILE -fno-stack-protector
+gcc -m32 -mpreferred-stack-boundary=2 -o $BIN_FILE $SRC_FILE -L$LIB_DIR -lctf -fno-stack-protector

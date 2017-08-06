@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../libctf/libctf.h"
+#include "../../libctf/static_lib/libctf.h"
 
 struct user {
         char *info;
