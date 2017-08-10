@@ -4,7 +4,8 @@
 #include "../../libctf/static_lib/libctf.h"
 
 struct user {
-        char *info;
+	char *info;
+	int isAdmin;
 };
 
 unsigned int canary_backup;
@@ -64,11 +65,19 @@ void main()
 
         user1 = malloc(sizeof(struct user));
         user1->info = malloc(64);
+	user1->isAdmin = 0;
 
         user_info = user1->info;
         func1(user_info);
 
-        printf("Saved User Info: %s\n", user1->info);
+	if(user1->isAdmin != 0){
+		free(user1->info);
+		free(user1);
+
+		success();
+	}
+
+	printf("Saved User Info: %s\n", user1->info);
         free(user1->info);
         free(user1);
         
