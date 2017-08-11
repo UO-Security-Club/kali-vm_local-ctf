@@ -9,6 +9,8 @@ apt-get install gcc
 apt-get install gdb
 apt-get install git
 apt-get install screen
+apt-get install gdbserver
+apt-get install nasm
 
 #32 bit libraries
 dpkg --add-architecture i386
