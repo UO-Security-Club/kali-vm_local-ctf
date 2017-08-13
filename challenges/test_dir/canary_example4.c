@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 struct user {
         char *info;
@@ -10,7 +11,7 @@ void foo1(char **dest)
 {
         char buf[32];
 
-        fgets(buf, 64, stdin);
+        read(0, buf, 64);
 
         char *info = *dest;
         strcpy(info, buf);
