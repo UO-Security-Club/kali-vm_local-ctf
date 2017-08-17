@@ -24,6 +24,7 @@ void main()
         struct user *user1;
         user1 = malloc(sizeof(struct user));
         user1->info = malloc(32);
+	printf("Enter User Info:\n");
 
         char *local_ptr = user1->info;
         foo1(&local_ptr);
