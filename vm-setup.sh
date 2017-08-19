@@ -11,6 +11,7 @@ apt-get install git
 apt-get install screen
 apt-get install gdbserver
 apt-get install nasm
+apt-get install socat
 
 #32 bit libraries
 dpkg --add-architecture i386
