@@ -12,6 +12,7 @@ apt-get install screen
 apt-get install gdbserver
 apt-get install nasm
 apt-get install socat
+apt-get install strace
 
 #32 bit libraries
 dpkg --add-architecture i386
