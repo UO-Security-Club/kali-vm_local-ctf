@@ -3,6 +3,13 @@
 #include <string.h>
 #include "../../libctf/static_lib/libctf.h"
 
+/*
+Source file name:
+	canary1.c
+Compiled with:
+	gcc -m32 -mpreferred-stack-boundary=2 -o canary1 canary1.c -L../libctf/static_lib -lctf -fno-stack-protector -no-pie
+*/
+
 int func1() {
 	int login_status = 0;
 	char uname_buf[32];
