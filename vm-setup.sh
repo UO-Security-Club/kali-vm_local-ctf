@@ -13,6 +13,7 @@ apt-get install gdbserver
 apt-get install nasm
 apt-get install socat
 apt-get install strace
+apt-get install ltrace
 
 #32 bit libraries
 dpkg --add-architecture i386
