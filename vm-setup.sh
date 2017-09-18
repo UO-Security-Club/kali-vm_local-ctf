@@ -15,6 +15,11 @@ apt-get install socat
 apt-get install strace
 apt-get install ltrace
 
+#DVWA Package Installs:
+apt-get update
+apt-get install apache2
+
+
 #32 bit libraries
 dpkg --add-architecture i386
 apt-get update
