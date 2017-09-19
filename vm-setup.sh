@@ -18,6 +18,8 @@ apt-get install ltrace
 #DVWA Package Installs:
 apt-get update
 apt-get install apache2
+um, this isnt working
+
 
 
 #32 bit libraries
